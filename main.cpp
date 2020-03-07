@@ -133,9 +133,9 @@ static struct sSceneGame : public ZL_Scene
 		{
 			scalar e = s(ZLTICKS - phase_start)/s(500);
 			sNumber n = numbers[(int)e];
-			scalar a = s(1)-sabs((e-((int)e))-s(0.5))*s(2);
+			scalar a = s(1)-sabs((e-((int)e))-s(0.5))*s(2), na = s(.6)+a;
 			ZL_Vector p = ZL_Display::Size() * n;
-			fntNumbers.Draw(p, ZL_String(n.num), s(.6)+a, ZLRGBA(1,1,1,a));
+			fntNumbers.Draw(p.x - 1*na, p.y + 3*na, ZL_String(n.num), na, ZLRGBA(1,1,1,a));
 			srfCircle.Draw(p, a, a, ZLRGBA(1,1,1,a));
 		}
 		else if (phase == PHASE_PLAY)
